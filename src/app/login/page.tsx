@@ -42,7 +42,7 @@ export default function LoginPage() {
     return (
         <div className="flex rounded-4xl overflow-hidden shadow-md justify-center mx-auto mt-20">
         
-        <div className="w-1/2 bg-green-500"></div>
+        <div className="w-1/2 bg-gradient-to-tl from-emerald-500 to-sky-50"></div>
 
         <div className="w-1/2 bg-gradient-to-br from-slate-50 to-emerald-100">
             <form className="p-[10vh]" onSubmit={handleSubmit}>
