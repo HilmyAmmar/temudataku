@@ -16,7 +16,7 @@ const handler = NextAuth({
           id: "1",
           name: "John Doe",
           email: "email@email.com",
-          password: "123456",
+          password: "inidummy123",
         };
 
         if (

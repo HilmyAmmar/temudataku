@@ -40,50 +40,51 @@ export default function LoginPage() {
         } 
     }
     return (
-        <div className="flex rounded-4xl overflow-hidden shadow-md justify-center mx-auto mt-20">
+        <div className="justify-center min-h-screen mx-auto my-[20vh] flex">
         
-        <div className="w-1/2 bg-gradient-to-tl from-emerald-500 to-sky-50"></div>
+            <form className="" onSubmit={handleSubmit}>
+                <h2 className="text-2xl font-bold mb-6 text-center text-gray-900">Welcome Back to TemuDataku</h2>
+                <p className="text-gray-500 text-center font-extralight mb-6">Enter your password and email to continue</p>
+                <div className="mb-4">
+                    <label htmlFor="email" className="block text-gray-800 font-semibold mb-2">
+                    Email
+                    </label>
+                    <input
+                    type="email"
+                    id="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Enter your email address"
+                    className="bg-gray-200 w-full px-3 py-2 border border-gray-400 rounded-md placeholder-gray-400 shadow-md text-gray-800"
+                    />
+                </div>
 
-        <div className="w-1/2 bg-gradient-to-br from-slate-50 to-emerald-100">
-            <form className="p-[10vh]" onSubmit={handleSubmit}>
-            <h2 className="text-2xl font-bold mb-6 text-center text-gray-700">Login</h2>
+                <div className="mb-4">
+                    <label htmlFor="password" className="block text-gray-800 font-semibold mb-2">
+                    Password
+                    </label>
+                    <input
+                    type="password"
+                    id="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    placeholder="Enter your password"
+                    className="bg-gray-200 w-full px-3 py-2 border border-gray-400 rounded-md placeholder-gray-400 shadow-md text-gray-800"
+                    />
+                </div>
 
-            <div className="mb-4">
-                <label htmlFor="email" className="block text-gray-700 mb-2">
-                Email
-                </label>
-                <input
-                type="email"
-                id="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter your email"
-                className="w-full px-3 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-1 focus:ring-green-700"
-                />
-            </div>
-
-            <div className="mb-4">
-                <label htmlFor="password" className="block text-gray-700 mb-2">
-                Password
-                </label>
-                <input
-                type="password"
-                id="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder="Enter your password"
-                className="w-full px-3 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-1 focus:ring-green-700"
-                />
-            </div>
-
-            <button
-                type="submit"
-                className="px-4 py-2 bg-green-600 text-white rounded-xl hover:bg-green-700 transition duration-300"
-            >
-                Login
-            </button>
+                <button
+                    type="submit"
+                    className="mt-6 w-full px-4 py-2 bg-[#15ae70] text-white rounded-md shadow-lg hover:bg-green-700 transition duration-300"
+                >
+                    Sign In
+                </button>
+                {/* <div className="flex items-center mt-6">
+                    <div className="border-t border-1 border-gray-400 flex-grow"></div>
+                    <div className="px-3 text-gray-800 font-bold text-md">Or</div>
+                    <div className="border-t border-1 border-gray-400 flex-grow"></div>
+                </div> */}
             </form>
-        </div>
         </div>
     );
 }
