@@ -1,36 +1,78 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🌱 TemuDataku
 
-## Getting Started
+**TemuDataku** is a web platform built to support self-learners in **Data Science**. It provides structured **practice problems**, **case studies**, and future **mentorship opportunities** to accelerate your learning journey.
 
-First, run the development server:
+🔗 **Live Site**: [temudataku-seven.vercel.app](https://temudataku-seven.vercel.app/)
 
+---
+
+## 🎥 Demo
+
+blablablabla
+
+---
+
+## ✨ Features
+
+- 🔐 User authentication with **NextAuth.js** (Credentials Provider)
+- 📦 PostgreSQL Database hosted on **Supabase**
+- 🔑 **JWT-based session** strategy for authentication
+- 🖼️ Clean, responsive **UI built with Tailwind CSS**
+- 📚 Data Science practice cases (Static Display)
+- 👥 1-on-1 and Group Mentorship (Coming Soon)
+- 🧑‍💻 Bootcamp Opportunities (Coming Soon)
+
+---
+
+## 🛠️ Tech Stack
+
+| Layer          | Technology                                  |
+|----------------|---------------------------------------------|
+| Frontend       | [Next.js](https://nextjs.org)               |
+| Backend/API    | [Next.js](https://nextjs.org)               |
+| Authentication | [NextAuth.js](https://next-auth.js.org)     |
+| Database       | [Supabase PostgreSQL](https://supabase.com) |
+| ORM            | [Prisma](https://www.prisma.io)             |
+| Styling        | [Tailwind CSS](https://tailwindcss.com)     |
+| Deployment     | [Vercel](https://vercel.com)                |
+
+---
+
+## 🚀 Getting Started
+
+Follow the steps below to run the project locally.
+
+### 1. Clone the repository
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/HilmyAmmar/temudataku.git
+cd temudataku
+```
+### 2. Install Dependenceis
+```bash
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 3. Setup Environment Variables
+Create a `.env` file in the root directory and add your credentials:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```env
+DATABASE_URL=your-database-url
+NEXTAUTH_SECRET=your-secret-key
+```
+`NEXTAUTH_SECRET` is generated with:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npx auth secret
+```
 
-## Learn More
+### 4. Push Prisma Schema to the Database
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npx prisma db push
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 5. Run the Development Server
+```bash
+npm run dev
+```
+Visit http://localhost:3000 to view the app
