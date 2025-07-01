@@ -73,6 +73,14 @@ Visit http://localhost:3000 to view the app
 
 ---
 
+## 🧪 Test Account (Demo Access)
+
+To skip registration, use the following credentials to log in directly:
+
+```txt
+📧 Email: email@email.com 
+🔑 Password: test1234
+```
 ## 🎥 Demo
 
 1. Landing Page
@@ -97,7 +105,7 @@ Visit http://localhost:3000 to view the app
 
 6. Sign Up (Error Messages)
 
-![image](https://github.com/user-attachments/assets/bfdbd9df-684b-4ff6-a332-e2e92c059132)
+![image](https://github.com/user-attachments/assets/90e59b92-885a-4cea-83c2-23875858c456)
 
 7. Login / Sign Up (Loading State)<br>
 
