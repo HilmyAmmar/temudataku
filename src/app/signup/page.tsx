@@ -3,8 +3,13 @@
 import { useEffect, useState } from "react";
 import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import { PrismaClient } from "@prisma/client";
+import { hash } from "crypto";
+import bcrypt from "bcryptjs";
 import Link from "next/link";
-export default function LoginPage() {
+
+export default function signUpPage() {
+    const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
@@ -12,16 +17,41 @@ export default function LoginPage() {
     const [success, setSuccess] = useState(false);
     const router = useRouter();
     const session = useSession();
+    const prisma = new PrismaClient();
+
     useEffect(() => {
         if (session.status === 'authenticated') {  
             router.push('/catalog');
         }
     }, [session.status, router]);
 
-    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    useEffect(() => {
+        if (error) {
+            const timer = setTimeout(() => {
+                setError('');
+            }, 5000);
+            return () => clearTimeout(timer);
+        }
+    }, [error]);
+
+    const handleSignUp = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setLoading(true);
         try {
+            const response = await fetch('/api/auth/signup', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ name, email, password }),
+            });
+            const data = await response.json();
+            if (!response.ok) {
+                setError(data.error || 'An error occurred during sign up.');
+                setLoading(false);
+                return;
+            }
+
             const result = await signIn('credentials', {
                 redirect: false,
                 email,
@@ -36,6 +66,7 @@ export default function LoginPage() {
                 setLoading(false);
                 router.push('/catalog');
             }
+
         } catch (err) {
             console.error('Login error:', err);
             setError('An unexpected error occurred. Please try again.');
@@ -44,9 +75,22 @@ export default function LoginPage() {
     return (
         <div className="justify-center min-h-screen mx-auto my-[20vh] flex">
         
-            <form className="" onSubmit={handleSubmit}>
-                <h2 className="text-2xl font-bold mb-6 text-center text-gray-900">Welcome Back to TemuDataku</h2>
-                <p className="text-gray-500 text-center font-extralight mb-6">Enter your password and email to continue</p>
+            <form className="" onSubmit={handleSignUp}>
+                <h2 className="text-2xl font-bold mb-6 text-center text-gray-900">Create Your Temudataku Account</h2>
+                <p className="text-gray-500 text-center font-extralight mb-6">Sign up to access TemuDataku Product</p>
+                <div className="mb-4">
+                    <label htmlFor="name" className="block text-gray-800 font-semibold mb-2">
+                    Name
+                    </label>
+                    <input
+                    type="name"
+                    id="name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    placeholder="Enter your name"
+                    className="bg-gray-200 w-full px-3 py-2 border border-gray-400 rounded-md placeholder-gray-400 shadow-md text-gray-800"
+                    />
+                </div>
                 <div className="mb-4">
                     <label htmlFor="email" className="block text-gray-800 font-semibold mb-2">
                     Email
@@ -82,7 +126,7 @@ export default function LoginPage() {
                     </svg>
                     <span className="sr-only">Error</span>
                     <div>
-                    <span className="font-medium">Login failed:</span> {error}
+                    <span className="font-medium">Sign Up failed:</span> {error}
                     </div>
                 </div>
                 )}
@@ -93,14 +137,14 @@ export default function LoginPage() {
                     className={`mt-6 w-full px-4 py-2 text-white rounded-md shadow-lg transition duration-300 ${
                         loading ? 'bg-gray-400 cursor-not-allowed' : 'bg-[#15ae70] hover:bg-green-700'
                     }`}
-                    >
-                    {loading ? 'Signing In...' : 'Sign In'}
+                >
+                    {loading ? 'Signing Up...' : 'Sign Up'}
                 </button>
 
                 <p className="text-gray-500 text-center font-extralight mt-6">
-                    Don't have an account?{" "}
+                    Already have an account?{" "}
                     <Link href="/login" className="text-gray-700 font-semibold hover:underline">
-                        Register
+                        Sign In
                     </Link>
                 </p>
             </form>
