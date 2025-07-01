@@ -53,7 +53,7 @@ export default function DashboardPage() {
         {practices.map((practice, index) => (
           <div
             key={index}
-            className="px-10 py-5 mb-6 w-full max-w-md bg-white border border-gray-200 rounded-lg shadow-lg"
+            className="px-10 py-5 mb-6 w-full max-w-md min-h-md bg-white border border-gray-200 rounded-lg shadow-lg justify-between flex flex-col transform transition duration-300 hover:scale-102 hover:shadow-2xl"
           >
             <div>
               <a href="#">
@@ -65,7 +65,7 @@ export default function DashboardPage() {
                 {practice.description}
               </p>
             </div>
-            <div className="flex items-center justify-between mt-12">
+            <div className="flex items-center justify-between mt-9">
               <span className="text-3xl font-bold text-gray-900">
                 {practice.price}
               </span>
