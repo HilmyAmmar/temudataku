@@ -21,6 +21,7 @@ export default function LoginPage() {
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setLoading(true);
+        setError('');
         try {
             const result = await signIn('credentials', {
                 redirect: false,
@@ -99,7 +100,7 @@ export default function LoginPage() {
 
                 <p className="text-gray-500 text-center font-extralight mt-6">
                     Don't have an account?{" "}
-                    <Link href="/login" className="text-gray-700 font-semibold hover:underline">
+                    <Link href="/signup" className="text-gray-700 font-semibold hover:underline">
                         Register
                     </Link>
                 </p>
