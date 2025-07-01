@@ -1,6 +1,10 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
+import { PrismaAdapter } from "@auth/prisma-adapter";
+import { compare } from "bcryptjs";
+import { PrismaClient } from "@prisma/client";
 
+const prisma = new PrismaClient();  
 const handler = NextAuth({
   providers: [
     CredentialsProvider({
@@ -10,24 +14,27 @@ const handler = NextAuth({
         password: { label: "Password", type: "password" }
       },
        async authorize(credentials) {
-        if (!credentials) return null;
-
-        const user = {
-          id: "1",
-          name: "John Doe",
-          email: "email@email.com",
-          password: "inidummy123",
-        };
-
-        if (
-          credentials.email === user.email &&
-          credentials.password === user.password
-        ) {
-          const { password, ...userWithoutPassword } = user;
-          return userWithoutPassword;
+        if (!credentials?.email || !credentials?.password) {
+          throw new Error("Email and password are required");
         }
 
-        return null;
+        const user = await prisma.user.findUnique({
+          where: { email: credentials.email },
+        });
+
+        if (!user || !user.hashedPassword) {
+          throw new Error("Invalid email or password");
+        }
+
+        const isValid = await compare(credentials.password, user.hashedPassword);
+
+        if (!isValid) return null;
+
+        return {
+          id: String(user.id),
+          email: user.email,
+          name: user.name,
+        };
       },
     }),
   ],
