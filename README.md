@@ -6,38 +6,6 @@
 
 ---
 
-## 🎥 Demo
-
-1. Landing Page
-   
-![image](https://github.com/user-attachments/assets/4ba5d6eb-e0f2-4f76-b002-cf8046679cee)
-
-2. Login Page
-
-![image](https://github.com/user-attachments/assets/b606d2f5-2ca0-40a3-bc1b-5f9fc9470fca)
-
-3. Sign Up Page
-
-![image](https://github.com/user-attachments/assets/31a09af5-93ec-43e9-a68f-6caa8652ee4f)
-
-4. Product Catalog Page
-
-![image](https://github.com/user-attachments/assets/633e212e-0506-4100-9573-f58026bff438)
-
-5. Login (Error Messages)
-
-![image](https://github.com/user-attachments/assets/8cab7588-5f55-43af-8ffb-5a3fcd329b27)
-
-6. Sign Up (Error Messages)
-
-![image](https://github.com/user-attachments/assets/bfdbd9df-684b-4ff6-a332-e2e92c059132)
-
-7. Login / Sign Up (Loading State)<br>
-
-![image](https://github.com/user-attachments/assets/cfc14324-2635-4004-9bc3-da42bf1bc8e1)
-
----
-
 ## ✨ Features
 
 - 🔐 User authentication with **NextAuth.js** (Credentials Provider)
@@ -102,3 +70,37 @@ npx prisma db push
 npm run dev
 ```
 Visit http://localhost:3000 to view the app
+
+---
+
+## 🎥 Demo
+
+1. Landing Page
+   
+![image](https://github.com/user-attachments/assets/4ba5d6eb-e0f2-4f76-b002-cf8046679cee)
+
+2. Login Page
+
+![image](https://github.com/user-attachments/assets/b606d2f5-2ca0-40a3-bc1b-5f9fc9470fca)
+
+3. Sign Up Page
+
+![image](https://github.com/user-attachments/assets/31a09af5-93ec-43e9-a68f-6caa8652ee4f)
+
+4. Product Catalog Page
+
+![image](https://github.com/user-attachments/assets/633e212e-0506-4100-9573-f58026bff438)
+
+5. Login (Error Messages)
+
+![image](https://github.com/user-attachments/assets/8cab7588-5f55-43af-8ffb-5a3fcd329b27)
+
+6. Sign Up (Error Messages)
+
+![image](https://github.com/user-attachments/assets/bfdbd9df-684b-4ff6-a332-e2e92c059132)
+
+7. Login / Sign Up (Loading State)<br>
+
+![image](https://github.com/user-attachments/assets/cfc14324-2635-4004-9bc3-da42bf1bc8e1)
+
+---
