@@ -53,7 +53,7 @@ export default function DashboardPage() {
         {practices.map((practice, index) => (
           <div
             key={index}
-            className="px-10 py-5 mb-6 w-full max-w-md bg-white border border-gray-200 rounded-lg shadow-sm"
+            className="px-10 py-5 mb-6 w-full max-w-md bg-white border border-gray-200 rounded-lg shadow-lg"
           >
             <div>
               <a href="#">
@@ -71,7 +71,7 @@ export default function DashboardPage() {
               </span>
               <a
                 href="#"
-                className="text-white bg-[#15ae70] hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                className="text-white bg-[#15ae70] hover:bg-[#129761] font-medium rounded-lg text-sm px-5 py-2.5 text-center"
               >
                 Add to cart
               </a>
