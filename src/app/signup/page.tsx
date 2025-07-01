@@ -8,7 +8,7 @@ import { hash } from "crypto";
 import bcrypt from "bcryptjs";
 import Link from "next/link";
 
-export default function signUpPage() {
+export default function SignUpPage() {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
